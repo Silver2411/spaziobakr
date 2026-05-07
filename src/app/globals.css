@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Berlin-techno concrete palette: cooler greys, deeper blacks, harder edges */
-  --color-bone: #ece8df;
-  --color-bone-deep: #ddd8cc;
-  --color-concrete: #b6b1a6;
-  --color-steel: #5a6068;
-  --color-raw: #6c6b66;
-  --color-shadow: #15171a;
-  --color-ink: #07080a;
-  --color-clay: #c75a35;
-  --color-acid: #d9d54a;
+  /* Variant: BLACK + RED — punk editorial. */
+  --color-bone: #e5392b;        /* red — used as text-bone (text on dark sections) */
+  --color-bone-deep: #c9311f;
+  --color-concrete: #8c2a1f;
+  --color-steel: #5a2020;
+  --color-raw: #7a2418;          /* muted red text */
+  --color-shadow: #000000;       /* true black — inverted section bgs */
+  --color-ink: #e5392b;          /* red — primary text on page */
+  --color-clay: #ffffff;         /* white — italic / accent moments */
+  --color-acid: #ffd23f;
 
   /* fonts come from next/font CSS variables on <html> */
   --tracking-display: -0.02em;
@@ -25,7 +25,7 @@
 
   html,
   body {
-    background-color: var(--color-bone);
+    background-color: #0a0a0a;
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -155,7 +155,33 @@
   }
 
   .hairline {
-    border-color: color-mix(in srgb, var(--color-ink) 16%, transparent);
+    border-color: color-mix(in srgb, var(--color-ink) 24%, transparent);
+  }
+
+  /* Variant overrides — force bg-* utilities to BLACK while text-* stays RED */
+  .bg-bone {
+    background-color: #0a0a0a;
+  }
+  .bg-bone-deep {
+    background-color: #050505;
+  }
+  .bg-bone\/85 {
+    background-color: rgb(10 10 10 / 0.85);
+  }
+  .bg-bone\/40 {
+    background-color: rgb(10 10 10 / 0.4);
+  }
+  .bg-ink {
+    background-color: #000;
+  }
+  .bg-ink\/40 {
+    background-color: rgb(0 0 0 / 0.4);
+  }
+
+  /* Selection in variant */
+  ::selection {
+    background: var(--color-ink);
+    color: #000;
   }
 
   .blink {
