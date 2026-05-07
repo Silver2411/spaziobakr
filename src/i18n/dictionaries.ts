@@ -198,20 +198,8 @@ export const dictionaries: Record<Locale, Dict> = {
           a: "Uso esclusivo dello spazio, energia, internet, climatizzazione, una persona di studio in supporto. Attrezzatura tecnica su richiesta.",
         },
         {
-          q: "Posso fare un sopralluogo prima di prenotare?",
-          a: "Sì, su appuntamento. Scrivici dal form e fissiamo una visita di 20 minuti.",
-        },
-        {
           q: "Avete una policy di cancellazione?",
           a: "Cancellazione gratuita fino a 7 giorni prima. Tra 7 e 2 giorni: 50%. Oltre: tariffa intera.",
-        },
-        {
-          q: "Si può cucinare o fare catering?",
-          a: "Sì, abbiamo una cucina di servizio e collaboriamo con catering selezionati.",
-        },
-        {
-          q: "Lo spazio è accessibile?",
-          a: "Sì, ingresso a livello strada, niente scalini. Bagno accessibile.",
         },
       ],
     },
@@ -426,20 +414,8 @@ export const dictionaries: Record<Locale, Dict> = {
           a: "Exclusive use of the space, energy, internet, climate, one studio assistant. Technical gear available on request.",
         },
         {
-          q: "Can I visit before booking?",
-          a: "Yes, by appointment. Reach out via the form and we'll schedule a 20-minute walk-through.",
-        },
-        {
           q: "What's your cancellation policy?",
           a: "Free cancellation up to 7 days before. Between 7 and 2 days: 50%. Less than that: full rate.",
-        },
-        {
-          q: "Can we cook or have catering?",
-          a: "Yes, we have a service kitchen and partner with selected caterers.",
-        },
-        {
-          q: "Is the space accessible?",
-          a: "Yes, street-level entrance, no steps, accessible bathroom.",
         },
       ],
     },

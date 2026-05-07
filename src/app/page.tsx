@@ -6,7 +6,6 @@ import { Gallery } from "@/components/Gallery";
 import { UseCases } from "@/components/UseCases";
 import { Specs } from "@/components/Specs";
 import { FAQ } from "@/components/FAQ";
-import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
       <UseCases />
       <Specs />
       <FAQ />
-      <CTA />
       <Footer />
     </main>
   );
