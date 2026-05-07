@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, Fraunces, Space_Mono } from "next/font/google";
+import { Inter_Tight, EB_Garamond, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/i18n/context";
 import { SmoothScroll } from "@/components/SmoothScroll";
@@ -12,13 +12,13 @@ const interTight = Inter_Tight({
   weight: ["300", "400", "500", "600"],
 });
 
-// Variable serif with optical sizing + italic — refined editorial display.
-const fraunces = Fraunces({
+// Classic editorial serif — Garamond, simple and basic, with italic.
+const ebGaramond = EB_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
   style: ["normal", "italic"],
-  axes: ["opsz", "SOFT"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const spaceMono = Space_Mono({
@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="it"
-      className={`${interTight.variable} ${fraunces.variable} ${spaceMono.variable}`}
+      className={`${interTight.variable} ${ebGaramond.variable} ${spaceMono.variable}`}
     >
       <body className="bg-bone text-ink antialiased">
         <LanguageProvider>

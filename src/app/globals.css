@@ -100,27 +100,17 @@
 
   .display {
     font-family: var(--font-display), Georgia, "Times New Roman", serif;
-    font-variation-settings: "opsz" 144, "SOFT" 50;
     font-weight: 400;
     letter-spacing: var(--tracking-display);
-    line-height: 0.92;
+    line-height: 0.96;
   }
 
   .display-italic {
     font-family: var(--font-display), Georgia, serif;
-    font-variation-settings: "opsz" 144, "SOFT" 100;
     font-weight: 400;
     font-style: italic;
     letter-spacing: -0.015em;
-    line-height: 0.95;
-  }
-
-  .display-tight {
-    font-family: var(--font-display), Georgia, serif;
-    font-variation-settings: "opsz" 144, "SOFT" 30;
-    font-weight: 500;
-    letter-spacing: -0.05em;
-    line-height: 0.88;
+    line-height: 0.96;
   }
 
   /* Berlin-mood photo treatment: desaturate, deepen contrast, cool shadows */
