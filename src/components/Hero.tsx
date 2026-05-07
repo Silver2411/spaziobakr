@@ -101,12 +101,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-12 md:items-end"
+          className="mt-12 flex justify-end"
         >
-          <p className="max-w-md text-balance text-base text-bone/85 md:col-span-7 md:text-lg">
-            {t.hero.sub}
-          </p>
-          <div className="eyebrow flex flex-col gap-1 text-bone/65 md:col-span-3 md:col-start-10 md:items-end md:text-right">
+          <div className="eyebrow flex flex-col gap-1 text-bone/65 md:items-end md:text-right">
             <span>Spazio BAKR</span>
             <span>{t.hero.location}</span>
             <span>Est. MMXXVI</span>
