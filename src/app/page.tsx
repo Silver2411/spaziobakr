@@ -1,0 +1,27 @@
+import { Navigation } from "@/components/Navigation";
+import { Hero } from "@/components/Hero";
+import { Manifesto } from "@/components/Manifesto";
+import { Marquee } from "@/components/Marquee";
+import { Gallery } from "@/components/Gallery";
+import { UseCases } from "@/components/UseCases";
+import { Specs } from "@/components/Specs";
+import { FAQ } from "@/components/FAQ";
+import { CTA } from "@/components/CTA";
+import { Footer } from "@/components/Footer";
+
+export default function Home() {
+  return (
+    <main>
+      <Navigation />
+      <Hero />
+      <Manifesto />
+      <Marquee />
+      <Gallery />
+      <UseCases />
+      <Specs />
+      <FAQ />
+      <CTA />
+      <Footer />
+    </main>
+  );
+}

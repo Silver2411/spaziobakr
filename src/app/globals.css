@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Berlin-techno concrete palette: cooler greys, deeper blacks, harder edges */
+  --color-bone: #ece8df;
+  --color-bone-deep: #ddd8cc;
+  --color-concrete: #b6b1a6;
+  --color-steel: #5a6068;
+  --color-raw: #6c6b66;
+  --color-shadow: #15171a;
+  --color-ink: #07080a;
+  --color-clay: #c75a35;
+  --color-acid: #d9d54a;
+
+  /* fonts come from next/font CSS variables on <html> */
+  --tracking-display: -0.02em;
+  --tracking-eyebrow: 0.22em;
+  --tracking-tight: -0.05em;
+}
+
+@layer base {
+  :root {
+    --header-h: 64px;
+  }
+
+  html,
+  body {
+    background-color: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-bone);
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    scrollbar-width: none;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: clip;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .container-edge {
+    padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+  }
+
+  .container-wide {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+    max-width: 96rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    font-weight: 400;
+  }
+
+  .display {
+    font-family: var(--font-display), Georgia, "Times New Roman", serif;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    font-weight: 400;
+    letter-spacing: var(--tracking-display);
+    line-height: 0.92;
+  }
+
+  .display-italic {
+    font-family: var(--font-display), Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.015em;
+    line-height: 0.95;
+  }
+
+  .display-tight {
+    font-family: var(--font-display), Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 0.88;
+  }
+
+  /* Berlin-mood photo treatment: desaturate, deepen contrast, cool shadows */
+  .photo-mood {
+    filter: contrast(1.1) saturate(0.78) brightness(0.92);
+  }
+  .photo-mood-strong {
+    filter: contrast(1.18) saturate(0.55) brightness(0.78);
+  }
+
+  /* Heavier monochrome grain — film print, not digital */
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.05' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .reveal-mask {
+    clip-path: inset(0 0 100% 0);
+  }
+  .reveal-mask-shown {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 1.2s cubic-bezier(0.7, 0, 0.2, 1);
+  }
+
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .hairline {
+    border-color: color-mix(in srgb, var(--color-ink) 16%, transparent);
+  }
+
+  .blink {
+    animation: blink 2s steps(2) infinite;
+  }
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0.3;
+    }
+  }
+
+  /* Optional crossed accent lines */
+  .tick::before {
+    content: "";
+    display: inline-block;
+    width: 0.6em;
+    height: 1px;
+    background: currentColor;
+    vertical-align: middle;
+    margin-right: 0.4em;
+  }
+}
