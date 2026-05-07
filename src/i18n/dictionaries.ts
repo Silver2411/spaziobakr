@@ -169,15 +169,14 @@ export const dictionaries: Record<Locale, Dict> = {
       ],
     },
     specs: {
-      eyebrow: "S.04 — Struttura",
-      title: "Quattro ambienti, un volume.",
+      eyebrow: "S.04 — Materia",
+      title: "Cemento. Acciaio. Vetro.",
       rows: [
-        { label: "Sala principale", value: "180 m² · luce zenitale" },
-        { label: "Camera grezza", value: "25 m² · cemento a vista" },
-        { label: "Backstage", value: "20 m² · trucco · regia" },
-        { label: "Cucina · Lounge", value: "15 m² · catering · attesa" },
+        { label: "Cemento", value: "Pareti grezze, pavimento lucido. Texture viva." },
+        { label: "Acciaio", value: "Strutture nere, dettagli industriali, riflessi opachi." },
+        { label: "Vetro", value: "Vetrate a tutta altezza. Luce che entra e disegna." },
       ],
-      note: "Tutti gli ambienti su un piano. Accesso indipendente · 240 m² totali · 4,5 m di altezza.",
+      note: "Lo spazio è la sua materia.",
     },
     faq: {
       eyebrow: "S.05 — Domande",
@@ -379,15 +378,14 @@ export const dictionaries: Record<Locale, Dict> = {
       ],
     },
     specs: {
-      eyebrow: "S.04 — Layout",
-      title: "Four rooms, one volume.",
+      eyebrow: "S.04 — Matter",
+      title: "Concrete. Steel. Glass.",
       rows: [
-        { label: "Main hall", value: "180 m² · overhead light" },
-        { label: "Raw room", value: "25 m² · exposed concrete" },
-        { label: "Backstage", value: "20 m² · make-up · control" },
-        { label: "Kitchen · Lounge", value: "15 m² · catering · standby" },
+        { label: "Concrete", value: "Raw walls, polished floor. Living texture." },
+        { label: "Steel", value: "Black frames, industrial details, matte sheen." },
+        { label: "Glass", value: "Floor-to-ceiling windows. Light enters and draws." },
       ],
-      note: "All rooms on one floor. Independent access · 240 m² total · 4.5 m ceiling.",
+      note: "The space is its matter.",
     },
     faq: {
       eyebrow: "S.05 — Questions",
