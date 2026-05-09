@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Editorial magazine palette: pure black + pure white + red accent */
+  /* Editorial magazine palette: pure black + pure white + brand red (1:1 from PDF) */
   --color-bone: #ffffff;
   --color-bone-deep: #f4f4f4;
   --color-concrete: #d4d4d4;
@@ -9,8 +9,8 @@
   --color-raw: #4d4d4d;
   --color-shadow: #000000;
   --color-ink: #050505;
-  --color-clay: #e5392b;
-  --color-acid: #e5392b;
+  --color-clay: #eb1505;          /* brand red, sampled 1:1 from BAKR identity */
+  --color-acid: #eb1505;
 
   --tracking-display: -0.04em;
   --tracking-eyebrow: 0.18em;
@@ -122,7 +122,6 @@
     filter: grayscale(1) contrast(1.4) brightness(0.82);
   }
 
-  /* Subtle grain — film print */
   .grain::before {
     content: "";
     position: fixed;
@@ -173,7 +172,6 @@
     }
   }
 
-  /* Magazine-style bracket-tag, e.g. (ECHO), (FILE), (REF) */
   .tag-bracket::before {
     content: "(";
   }
