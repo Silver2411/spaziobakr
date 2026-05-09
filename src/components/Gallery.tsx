@@ -13,14 +13,12 @@ function ParallaxImage({
   className,
   amount = 12,
   sizes,
-  priority,
 }: {
   src: string;
   alt: string;
   className?: string;
   amount?: number;
   sizes?: string;
-  priority?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -38,13 +36,19 @@ function ParallaxImage({
           fill
           sizes={sizes ?? "100vw"}
           className="object-cover photo-mood"
-          priority={priority}
         />
       </motion.div>
     </div>
   );
 }
 
+/**
+ * Minimal gallery — 4 photos, 2 captions. Streamlined layout:
+ *   Row 1: full-bleed wide hero shot
+ *   Row 2: photo + single caption
+ *   Row 3: photo + single caption
+ *   Row 4: full-width detail
+ */
 export function Gallery() {
   const { t } = useT();
   const captions = t.gallery.captions;
@@ -55,58 +59,22 @@ export function Gallery() {
       className="relative bg-bone py-[clamp(4rem,10vw,8rem)]"
     >
       <div className="container-wide mb-[clamp(3rem,8vw,6rem)] grid grid-cols-1 gap-6 md:grid-cols-12">
-        <div className="md:col-span-5">
+        <div className="md:col-span-3">
           <Reveal>
-            <div className="eyebrow mb-6 text-ink/60">{t.gallery.eyebrow}</div>
-            <h2
-              className="display text-balance"
-              style={{ fontSize: "clamp(2.2rem, 5.5vw, 4.5rem)" }}
-            >
-              <SplitReveal text={t.gallery.title} />
-            </h2>
+            <div className="eyebrow text-ink/55">{t.gallery.eyebrow}</div>
           </Reveal>
+        </div>
+        <div className="md:col-span-8">
+          <h2
+            className="display text-balance"
+            style={{ fontSize: "clamp(2rem, 4.4vw, 4rem)" }}
+          >
+            <SplitReveal text={t.gallery.title} />
+          </h2>
         </div>
       </div>
 
-      {/* Row 1 — left big image + caption right */}
-      <div className="container-wide mb-[clamp(3rem,7vw,5rem)] grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12">
-        <Reveal className="md:col-span-8">
-          <ParallaxImage
-            src={photos.gallery[0].src}
-            alt={photos.gallery[0].alt}
-            sizes="(max-width: 768px) 100vw, 66vw"
-            className="aspect-[4/5] md:aspect-[5/6]"
-          />
-        </Reveal>
-        <Reveal delay={0.1} className="md:col-span-4 md:self-end">
-          <Caption
-            num="01"
-            title={captions[0].title}
-            body={captions[0].body}
-          />
-        </Reveal>
-      </div>
-
-      {/* Row 2 — right big image + caption left, sticky */}
-      <div className="container-wide mb-[clamp(3rem,7vw,5rem)] grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12">
-        <Reveal className="order-2 md:order-1 md:col-span-4 md:self-start md:pt-12">
-          <Caption
-            num="02"
-            title={captions[1].title}
-            body={captions[1].body}
-          />
-        </Reveal>
-        <Reveal delay={0.1} className="order-1 md:order-2 md:col-span-8">
-          <ParallaxImage
-            src={photos.gallery[1].src}
-            alt={photos.gallery[1].alt}
-            sizes="(max-width: 768px) 100vw, 66vw"
-            className="aspect-[3/4] md:aspect-[3/4]"
-          />
-        </Reveal>
-      </div>
-
-      {/* Row 3 — full-bleed wide */}
+      {/* Row 1 — full-bleed wide */}
       <Reveal>
         <ParallaxImage
           src={photos.gallery[2].src}
@@ -117,30 +85,40 @@ export function Gallery() {
         />
       </Reveal>
 
-      {/* Row 4 — three-up grid */}
-      <div className="container-wide mt-[clamp(3rem,7vw,5rem)] grid grid-cols-2 gap-4 md:grid-cols-12 md:gap-6">
-        <Reveal className="col-span-2 md:col-span-5">
+      {/* Row 2 — image left + caption right */}
+      <div className="container-wide mt-[clamp(3rem,7vw,5rem)] grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12">
+        <Reveal className="md:col-span-7">
           <ParallaxImage
-            src={photos.gallery[3].src}
-            alt={photos.gallery[3].alt}
-            sizes="(max-width: 768px) 100vw, 40vw"
+            src={photos.gallery[0].src}
+            alt={photos.gallery[0].alt}
+            sizes="(max-width: 768px) 100vw, 58vw"
             className="aspect-[4/5]"
           />
         </Reveal>
-        <Reveal delay={0.1} className="col-span-1 md:col-span-4 md:mt-24">
-          <ParallaxImage
-            src={photos.gallery[4].src}
-            alt={photos.gallery[4].alt}
-            sizes="(max-width: 768px) 50vw, 33vw"
-            className="aspect-[3/4]"
+        <Reveal delay={0.1} className="md:col-span-4 md:col-start-9 md:self-end">
+          <Caption
+            num="01"
+            title={captions[0].title}
+            body={captions[0].body}
           />
         </Reveal>
-        <Reveal delay={0.2} className="col-span-1 md:col-span-3 md:mt-12">
+      </div>
+
+      {/* Row 3 — caption left + image right */}
+      <div className="container-wide mt-[clamp(3rem,7vw,5rem)] grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12">
+        <Reveal className="order-2 md:order-1 md:col-span-4 md:self-end">
           <Caption
-            num="03"
-            title={captions[2].title}
-            body={captions[2].body}
-            small
+            num="02"
+            title={captions[1].title}
+            body={captions[1].body}
+          />
+        </Reveal>
+        <Reveal delay={0.1} className="order-1 md:order-2 md:col-span-7 md:col-start-6">
+          <ParallaxImage
+            src={photos.gallery[1].src}
+            alt={photos.gallery[1].alt}
+            sizes="(max-width: 768px) 100vw, 58vw"
+            className="aspect-[3/4]"
           />
         </Reveal>
       </div>
@@ -152,23 +130,21 @@ function Caption({
   num,
   title,
   body,
-  small,
 }: {
   num: string;
   title: string;
   body: string;
-  small?: boolean;
 }) {
   return (
     <div>
       <div className="eyebrow mb-3 text-ink/40">{num}</div>
       <h3
         className="display mb-3"
-        style={{ fontSize: small ? "1.25rem" : "clamp(1.5rem, 2.5vw, 2.25rem)" }}
+        style={{ fontSize: "clamp(1.4rem, 2.4vw, 2rem)" }}
       >
         {title}
       </h3>
-      <p className={`text-ink/70 ${small ? "text-sm" : "text-base"}`}>{body}</p>
+      <p className="max-w-[36ch] text-ink/65">{body}</p>
     </div>
   );
 }
