@@ -9,13 +9,19 @@ import clsx from "clsx";
  */
 export function Logo({
   className,
-  height = 28,
+  height,
   ariaLabel = "Spazio BAKR",
 }: {
   className?: string;
+  /** When set, locks height inline; otherwise width/height come from className. */
   height?: number | string;
   ariaLabel?: string;
 }) {
+  const style: React.CSSProperties = { fill: "currentColor" };
+  if (height !== undefined) {
+    style.height = height;
+    style.width = "auto";
+  }
   return (
     <svg
       viewBox="0 0 814.68 173.77"
@@ -23,7 +29,7 @@ export function Logo({
       aria-label={ariaLabel}
       preserveAspectRatio="xMidYMid meet"
       className={clsx("inline-block select-none align-middle", className)}
-      style={{ height, width: "auto", fill: "currentColor" }}
+      style={style}
     >
       <g>
     <g>
