@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 
 /**
- * Photo-Wall variant — watermark stays SOLID WHITE for the entire dark
- * zone (Hero + PhotoWall + inverted Manifesto), then quickly fades out
- * before the marquee/gallery section. No color switching needed.
+ * Photo-Wall variant — watermark stays SOLID WHITE through Hero + 2 photos
+ * (the dark zone). Scroll fade ENDS with the last photo so the watermark
+ * is gone by the time the manifesto arrives.
+ *
+ * Dark zone: Hero (~1vh) + 2 PhotoWall images (~80vh each = 1.6vh) ≈ 2.6vh
  */
 export function StickyWatermark() {
   const [opacity, setOpacity] = useState(1);
@@ -17,9 +19,8 @@ export function StickyWatermark() {
     const compute = () => {
       const y = window.scrollY;
       const vh = window.innerHeight;
-      // Dark zone: Hero (1vh) + PhotoWall (~4×80vh = 3.2vh) + Manifesto (~1vh) ≈ 5.2vh
-      const darkZoneEnd = vh * 5.0;
-      const fadeEnd = vh * 5.4;
+      const darkZoneEnd = vh * 2.4; // Hero + 2 photos
+      const fadeEnd = vh * 2.6; // Quick fade-out at the end of photos
 
       if (y < darkZoneEnd) {
         setOpacity(1);
