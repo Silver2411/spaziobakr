@@ -5,10 +5,13 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useT } from "@/i18n/context";
 import { LanguageSwitch } from "./LanguageSwitch";
-import { MilanoTime } from "./Stamp";
-import { Logo } from "./Logo";
 import clsx from "clsx";
 
+/**
+ * Acne-Studios-inspired minimal navigation: text-only labels, no logo
+ * (the logo lives as a giant wordmark in the page flow). Two columns —
+ * primary nav left, booking + lang right.
+ */
 export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) {
   const { t } = useT();
   const [scrolled, setScrolled] = useState(false);
@@ -36,6 +39,7 @@ export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) 
           { href: "/info", label: t.nav.info },
         ]
       : [
+          { href: "/", label: "Home" },
           { href: "/#space", label: t.nav.spaces },
           { href: "/#uses", label: t.nav.services },
           { href: "/info", label: t.nav.info },
@@ -44,49 +48,34 @@ export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) 
   return (
     <>
       <motion.header
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
         className={clsx(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
           scrolled
-            ? "bg-bone/85 backdrop-blur-md hairline border-b"
-            : "bg-transparent"
+            ? "bg-bone/85 text-ink backdrop-blur-md"
+            : variant === "home"
+              ? "bg-transparent text-bone"
+              : "bg-transparent text-ink"
         )}
       >
         <nav className="container-wide flex h-[var(--header-h)] items-center justify-between gap-6">
-          <Link href="/" data-cursor="Home" aria-label="Spazio BAKR — Home" className="text-ink">
-            <Logo height={26} />
-          </Link>
-
-          <div className="hidden items-center gap-8 md:flex">
+          {/* Left: minimal text-only links */}
+          <div className="hidden items-center gap-7 md:flex">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="eyebrow text-ink/70 transition-colors hover:text-ink"
+                className="eyebrow opacity-80 transition-opacity hover:opacity-100"
                 data-cursor="↓"
               >
                 {l.label}
               </Link>
             ))}
-            <MilanoTime className="text-ink/55" />
-            <LanguageSwitch />
-            <Link
-              href="/booking"
-              data-cursor="→"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-ink px-4 py-2 text-[0.8125rem] font-medium tracking-wide"
-            >
-              <span className="relative z-10 transition-colors duration-500 group-hover:text-bone">
-                {t.nav.book}
-              </span>
-              <span
-                aria-hidden
-                className="absolute inset-0 -z-0 translate-y-full bg-ink transition-transform duration-500 group-hover:translate-y-0"
-              />
-            </Link>
           </div>
 
+          {/* Mobile: hamburger left */}
           <button
             aria-label="Menu"
             onClick={() => setOpen((v) => !v)}
@@ -95,17 +84,29 @@ export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) 
           >
             <span
               className={clsx(
-                "absolute h-px w-6 bg-ink transition-transform duration-500",
+                "absolute h-px w-6 bg-current transition-transform duration-500",
                 open ? "translate-y-0 rotate-45" : "-translate-y-1.5"
               )}
             />
             <span
               className={clsx(
-                "absolute h-px w-6 bg-ink transition-transform duration-500",
+                "absolute h-px w-6 bg-current transition-transform duration-500",
                 open ? "-translate-y-0 -rotate-45" : "translate-y-1.5"
               )}
             />
           </button>
+
+          {/* Right: book + lang */}
+          <div className="flex items-center gap-5">
+            <LanguageSwitch />
+            <Link
+              href="/booking"
+              data-cursor="→"
+              className="eyebrow border-b border-current pb-0.5 opacity-90 transition-opacity hover:opacity-100"
+            >
+              {t.nav.book} →
+            </Link>
+          </div>
         </nav>
       </motion.header>
 
@@ -117,18 +118,18 @@ export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 bg-bone md:hidden"
+            className="fixed inset-0 z-40 bg-bone text-ink md:hidden"
           >
             <div className="container-wide flex h-full flex-col justify-between pt-[calc(var(--header-h)+2rem)] pb-12">
               <div className="flex flex-col gap-6">
                 {links.map((l, i) => (
                   <motion.div
                     key={l.href}
-                    initial={{ opacity: 0, y: 32 }}
+                    initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
-                      duration: 0.7,
-                      delay: 0.1 + i * 0.08,
+                      duration: 0.6,
+                      delay: 0.1 + i * 0.06,
                       ease: [0.25, 0.1, 0.25, 1],
                     }}
                   >
@@ -142,18 +143,17 @@ export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) 
                   </motion.div>
                 ))}
                 <motion.div
-                  initial={{ opacity: 0, y: 32 }}
+                  initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 0.7,
+                    duration: 0.6,
                     delay: 0.3,
-                    ease: [0.25, 0.1, 0.25, 1],
                   }}
                 >
                   <Link
                     href="/booking"
                     onClick={() => setOpen(false)}
-                    className="display-italic mt-2 block text-5xl text-clay"
+                    className="display mt-2 block text-5xl"
                   >
                     {t.nav.book} →
                   </Link>
@@ -165,7 +165,7 @@ export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) 
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="flex items-end justify-between"
               >
-                <div className="eyebrow text-ink/60">Milano · IT</div>
+                <div className="eyebrow opacity-60">Milano · IT</div>
                 <LanguageSwitch />
               </motion.div>
             </div>

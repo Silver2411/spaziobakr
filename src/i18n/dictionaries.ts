@@ -116,19 +116,19 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     gallery: {
       eyebrow: "S.02 — Spazio",
-      title: "Cinque ambienti, una sola materia.",
+      title: "Volume, atmosfera, dettaglio.",
       captions: [
         {
-          title: "Sala principale",
-          body: "180 m² liberi, soffitto 4,5 m, luce zenitale costante.",
+          title: "Volume",
+          body: "240 m² su un piano. Cemento armato a vista, soffitti 4,5 m, struttura industriale.",
         },
         {
-          title: "Camera grezza",
-          body: "Cemento a vista, finestrone a tutta altezza, ideale per ritratti e moda.",
+          title: "Atmosfera",
+          body: "Luce calda controllata. Strutture pesanti, ombre lunghe, isolamento acustico.",
         },
         {
-          title: "Backstage",
-          body: "Zona trucco, lounge e regia, isolata acusticamente.",
+          title: "Dettaglio",
+          body: "Finiture in marmo nero, acciaio brunito, vetro. Cura sartoriale di ogni superficie.",
         },
       ],
     },
@@ -325,19 +325,19 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     gallery: {
       eyebrow: "S.02 — Space",
-      title: "Five rooms, one material.",
+      title: "Volume, atmosphere, detail.",
       captions: [
         {
-          title: "Main hall",
-          body: "180 m² open, 4.5 m ceiling, constant overhead light.",
+          title: "Volume",
+          body: "240 m² on one floor. Exposed reinforced concrete, 4.5 m ceilings, industrial structure.",
         },
         {
-          title: "Raw room",
-          body: "Exposed concrete, full-height window — ideal for portrait and fashion.",
+          title: "Atmosphere",
+          body: "Controlled warm light. Heavy structures, long shadows, acoustic isolation.",
         },
         {
-          title: "Backstage",
-          body: "Make-up area, lounge and control booth, acoustically isolated.",
+          title: "Detail",
+          body: "Black marble finishings, brunished steel, glass. Sartorial care of every surface.",
         },
       ],
     },
