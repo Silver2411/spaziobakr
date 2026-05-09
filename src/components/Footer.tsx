@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useT } from "@/i18n/context";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { CircularStamp } from "./Stamp";
+import { Logo } from "./Logo";
 
 export function Footer() {
   const { t } = useT();
@@ -12,14 +13,8 @@ export function Footer() {
       <div className="container-wide py-[clamp(3rem,8vw,6rem)]">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="relative md:col-span-6">
-            <div
-              className="display leading-[0.92]"
-              style={{ fontSize: "clamp(3rem, 12vw, 11rem)" }}
-            >
-              <span className="block">Spazio</span>
-              <span className="display-italic block text-clay">BAKR</span>
-            </div>
-            <div className="mt-8 hidden text-bone/60 md:block">
+            <Logo variant="light" height={120} className="!h-[clamp(48px,12vw,120px)]" />
+            <div className="mt-8 hidden text-bone/55 md:block">
               <CircularStamp size={108} />
             </div>
           </div>
