@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { BrandWatermark } from "@/components/BrandWatermark";
 import { BookingForm } from "@/components/BookingForm";
 import { useT } from "@/i18n/context";
 import { Reveal, SplitReveal } from "@/components/Reveal";
@@ -44,6 +45,7 @@ export default function BookingPage() {
         </div>
       </section>
 
+      <BrandWatermark />
       <Footer />
     </main>
   );

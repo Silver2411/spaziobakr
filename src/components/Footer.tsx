@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useT } from "@/i18n/context";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { CircularStamp } from "./Stamp";
-import { Logo } from "./Logo";
 
 export function Footer() {
   const { t } = useT();
@@ -13,8 +12,12 @@ export function Footer() {
       <div className="container-wide py-[clamp(3rem,8vw,6rem)]">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="relative md:col-span-6">
-            <Logo height={120} className="!h-[clamp(48px,12vw,120px)] text-bone" />
-            <div className="mt-8 hidden text-bone/55 md:block">
+            <div className="eyebrow text-bone/55">Studio · Loft</div>
+            <p className="mt-4 max-w-md text-base text-bone/75">
+              Spazio per immagini. Cemento, acciaio, vetro, luce — un volume
+              nudo per chi costruisce contenuto.
+            </p>
+            <div className="mt-10 hidden text-bone/55 md:block">
               <CircularStamp size={108} />
             </div>
           </div>

@@ -1,30 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, Space_Grotesk, Space_Mono } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/i18n/context";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Cursor } from "@/components/Cursor";
 
-const interTight = Inter_Tight({
+// Hanken Grotesk — Helvetica/Aktiv-Grotesk-clone, single family across the
+// entire brand: body copy, display, eyebrows, navigation. Brand-1:1.
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
-});
-
-// Modern geometric grotesk — distinctive but not elegant, brand-identity tone.
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -57,10 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="it"
-      className={`${interTight.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}
-    >
+    <html lang="it" className={hanken.variable}>
       <body className="bg-bone text-ink antialiased">
         <LanguageProvider>
           <SmoothScroll />

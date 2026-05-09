@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { BrandWatermark } from "@/components/BrandWatermark";
 import { useT } from "@/i18n/context";
 import { photos } from "@/lib/photos";
 import { Reveal, SplitReveal } from "@/components/Reveal";
@@ -86,6 +87,7 @@ export default function InfoPage() {
         </div>
       </section>
 
+      <BrandWatermark />
       <Footer />
     </main>
   );

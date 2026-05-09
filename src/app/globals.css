@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Spazio BAKR brand palette — sampled 1:1 from official identity PDF */
-  --color-bone: #e1dbd1;        /* brand cream — page bg / text on dark */
-  --color-bone-deep: #d5cdc0;   /* deeper cream */
-  --color-concrete: #a19a8c;    /* mid-tan */
-  --color-steel: #7b7670;
-  --color-raw: #5c544a;          /* muted dark */
-  --color-shadow: #4e4c50;       /* brand slate — inverted section bg */
-  --color-ink: #0b0b0b;          /* brand near-black — primary text */
-  --color-clay: #59423b;         /* brand brown — accent */
-  --color-acid: #fbfbfa;         /* brand off-white */
+  /* MAIN palette — bianco / nero / grigio / cemento (per direttiva 1:1) */
+  --color-bone: #ffffff;         /* BIANCO — page bg / text on dark */
+  --color-bone-deep: #f4f1eb;    /* slight cream tint for tonal variation */
+  --color-concrete: #b8b1a3;     /* CEMENTO — concrete warm-grey */
+  --color-steel: #4e4c50;        /* GRIGIO — brand slate */
+  --color-raw: #6e6c66;          /* mid-grey */
+  --color-shadow: #1a1a1a;       /* near-black — inverted section bg */
+  --color-ink: #0a0a0a;          /* NERO — primary text */
+  --color-clay: #4e4c50;         /* GRIGIO accent (same as steel) */
+  --color-acid: #b8b1a3;         /* cemento accent */
 
   --tracking-display: -0.045em;
   --tracking-eyebrow: 0.18em;
@@ -90,26 +90,28 @@
   }
 
   .eyebrow {
-    font-family: var(--font-mono), ui-monospace, monospace;
+    font-family: var(--font-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: var(--tracking-eyebrow);
-    font-weight: 400;
+    font-weight: 600;
   }
 
   .display {
-    font-family: var(--font-display), -apple-system, "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    letter-spacing: var(--tracking-display);
-    line-height: 0.9;
+    font-family: var(--font-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    text-transform: uppercase;
   }
 
   .display-italic {
-    font-family: var(--font-display), -apple-system, "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-    letter-spacing: var(--tracking-display);
-    line-height: 0.9;
+    font-family: var(--font-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    text-transform: uppercase;
   }
 
   /* Brand-toned photo treatment: warm desaturate, slight contrast */
