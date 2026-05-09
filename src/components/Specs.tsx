@@ -7,11 +7,7 @@ import { useT } from "@/i18n/context";
 import { photos } from "@/lib/photos";
 import { Reveal, SplitReveal } from "./Reveal";
 
-const materialPhotos = [
-  photos.gallery[0], // Cemento — concrete texture
-  photos.gallery[5], // Acciaio — steel staircase
-  photos.gallery[4], // Vetro — full-height glass
-];
+const materialPhotos = photos.materia;
 
 function MaterialPhoto({
   src,

@@ -1,20 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Variant: BLACK + RED — punk editorial. */
-  --color-bone: #e5392b;        /* red — used as text-bone (text on dark sections) */
-  --color-bone-deep: #c9311f;
-  --color-concrete: #8c2a1f;
-  --color-steel: #5a2020;
-  --color-raw: #7a2418;          /* muted red text */
+  /* Variant BLACK + RED — uses brand red (#EB1505) sampled from BAKR identity */
+  --color-bone: #eb1505;        /* brand red — used as text-bone (text on dark) */
+  --color-bone-deep: #c11200;
+  --color-concrete: #8c1810;
+  --color-steel: #5a1108;
+  --color-raw: #7a1a0a;          /* muted dark red */
   --color-shadow: #000000;       /* true black — inverted section bgs */
-  --color-ink: #e5392b;          /* red — primary text on page */
+  --color-ink: #eb1505;          /* brand red — primary text */
   --color-clay: #ffffff;         /* white — italic / accent moments */
   --color-acid: #ffd23f;
 
-  /* fonts come from next/font CSS variables on <html> */
-  --tracking-display: -0.02em;
-  --tracking-eyebrow: 0.22em;
+  --tracking-display: -0.045em;
+  --tracking-eyebrow: 0.18em;
   --tracking-tight: -0.05em;
 }
 
@@ -43,7 +42,7 @@
 
   ::selection {
     background: var(--color-ink);
-    color: var(--color-bone);
+    color: #000;
   }
 
   body::-webkit-scrollbar {
@@ -101,7 +100,7 @@
   .display {
     font-family: var(--font-display), -apple-system, "Helvetica Neue", sans-serif;
     font-weight: 500;
-    letter-spacing: -0.045em;
+    letter-spacing: var(--tracking-display);
     line-height: 0.9;
   }
 
@@ -109,19 +108,18 @@
     font-family: var(--font-display), -apple-system, "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-style: italic;
-    letter-spacing: -0.045em;
+    letter-spacing: var(--tracking-display);
     line-height: 0.9;
   }
 
-  /* Berlin-mood photo treatment: desaturate, deepen contrast, cool shadows */
+  /* Photo treatment: deep contrast, low saturation — Berlin/club feel */
   .photo-mood {
-    filter: contrast(1.1) saturate(0.78) brightness(0.92);
+    filter: contrast(1.1) saturate(0.6) brightness(0.9);
   }
   .photo-mood-strong {
-    filter: contrast(1.18) saturate(0.55) brightness(0.78);
+    filter: contrast(1.2) saturate(0.4) brightness(0.78);
   }
 
-  /* Heavier monochrome grain — film print, not digital */
   .grain::before {
     content: "";
     position: fixed;
@@ -129,8 +127,8 @@
     pointer-events: none;
     z-index: 100;
     opacity: 0.07;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.05' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.05' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.85 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 
   .reveal-mask {
@@ -178,12 +176,6 @@
     background-color: rgb(0 0 0 / 0.4);
   }
 
-  /* Selection in variant */
-  ::selection {
-    background: var(--color-ink);
-    color: #000;
-  }
-
   .blink {
     animation: blink 2s steps(2) infinite;
   }
@@ -198,14 +190,10 @@
     }
   }
 
-  /* Optional crossed accent lines */
-  .tick::before {
-    content: "";
-    display: inline-block;
-    width: 0.6em;
-    height: 1px;
-    background: currentColor;
-    vertical-align: middle;
-    margin-right: 0.4em;
+  .tag-bracket::before {
+    content: "(";
+  }
+  .tag-bracket::after {
+    content: ")";
   }
 }

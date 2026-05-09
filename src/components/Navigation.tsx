@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useT } from "@/i18n/context";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { MilanoTime } from "./Stamp";
+import { Logo } from "./Logo";
 import clsx from "clsx";
 
 export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) {
@@ -54,13 +55,8 @@ export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) 
         )}
       >
         <nav className="container-wide flex h-[var(--header-h)] items-center justify-between gap-6">
-          <Link
-            href="/"
-            data-cursor="Home"
-            className="display flex items-baseline gap-1.5 text-[1.5rem] leading-none tracking-[-0.025em]"
-          >
-            <span>Spazio</span>
-            <span className="display-italic text-clay">BAKR</span>
+          <Link href="/" data-cursor="Home" aria-label="Spazio BAKR — Home">
+            <Logo variant="red" height={26} priority />
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
