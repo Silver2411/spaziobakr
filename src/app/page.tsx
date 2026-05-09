@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
-import { HeroWatermark } from "@/components/HeroWatermark";
 import { Manifesto } from "@/components/Manifesto";
 import { Marquee } from "@/components/Marquee";
 import { Gallery } from "@/components/Gallery";
@@ -14,7 +13,6 @@ export default function Home() {
     <main>
       <Navigation />
       <Hero />
-      <HeroWatermark />
       <Manifesto />
       <Marquee />
       <Gallery />

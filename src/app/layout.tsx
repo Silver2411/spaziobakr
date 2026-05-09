@@ -4,6 +4,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/i18n/context";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Cursor } from "@/components/Cursor";
+import { StickyWatermark } from "@/components/StickyWatermark";
 
 // Hanken Grotesk — Helvetica/Aktiv-Grotesk-clone, single family across the
 // entire brand: body copy, display, eyebrows, navigation. Brand-1:1.
@@ -51,6 +52,7 @@ export default function RootLayout({
           <Cursor />
           <div className="grain" aria-hidden="true" />
           {children}
+          <StickyWatermark />
         </LanguageProvider>
       </body>
     </html>
