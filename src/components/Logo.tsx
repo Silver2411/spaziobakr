@@ -3,30 +3,17 @@
 import clsx from "clsx";
 
 /**
- * Spazio BAKR official wordmark — extracted as vector paths from the brand
- * identity PDF (page 5, bottom stripe), traced 1:1 with potrace.
+ * Spazio BAKR official wordmark — vectorized 1:1 from brand identity PDF
+ * (page 5, bottom stripe) via potrace.
  *
- * Inline SVG with fill="currentColor" → tint by setting `color` on container.
- * Vector → no halo, no pixelation, infinitely scalable.
+ * Uses `fill="currentColor"`: inherits color from parent text — guarantees
+ * zero color mismatch with surrounding text on any branch / palette.
  */
-type Variant = "dark" | "light" | "white" | "slate" | "red" | "current";
-
-const COLORS: Record<Variant, string> = {
-  dark: "#0b0b0b",
-  light: "#e1dbd1",
-  white: "#ffffff",
-  slate: "#4e4c50",
-  red: "#eb1505",
-  current: "currentColor",
-};
-
 export function Logo({
-  variant = "dark",
   className,
   height = 28,
   ariaLabel = "Spazio BAKR",
 }: {
-  variant?: Variant;
   className?: string;
   height?: number | string;
   ariaLabel?: string;
@@ -41,7 +28,6 @@ export function Logo({
       style={{
         height,
         width: "auto",
-        color: COLORS[variant],
       }}
     >
       <g transform="translate(0.000000,1510.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
