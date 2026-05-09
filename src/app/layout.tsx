@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, Space_Grotesk, Space_Mono } from "next/font/google";
+import { Inter_Tight, Archivo_Black, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/i18n/context";
 import { SmoothScroll } from "@/components/SmoothScroll";
@@ -9,15 +9,15 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-// Modern geometric grotesk — distinctive but not elegant, brand-identity tone.
-const spaceGrotesk = Space_Grotesk({
+// Editorial magazine display — heavy black sans-serif, Helvetica-Black character.
+const archivoBlack = Archivo_Black({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: "400",
 });
 
 const spaceMono = Space_Mono({
@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="it"
-      className={`${interTight.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}
+      className={`${interTight.variable} ${archivoBlack.variable} ${spaceMono.variable}`}
     >
       <body className="bg-bone text-ink antialiased">
         <LanguageProvider>
