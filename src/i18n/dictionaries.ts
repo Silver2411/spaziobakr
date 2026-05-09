@@ -153,18 +153,8 @@ export const dictionaries: Record<Locale, Dict> = {
         },
         {
           num: "04",
-          label: "Podcast",
-          body: "Cabine isolate, fibra dedicata, regia A/V.",
-        },
-        {
-          num: "05",
           label: "Eventi privati",
-          body: "Cene, presentazioni, dinner intimi fino a 60 persone.",
-        },
-        {
-          num: "06",
-          label: "Workshop",
-          body: "Talk, masterclass, residenze creative.",
+          body: "Cene, presentazioni, gathering intimi fino a 60 persone.",
         },
       ],
     },
@@ -362,18 +352,8 @@ export const dictionaries: Record<Locale, Dict> = {
         },
         {
           num: "04",
-          label: "Podcast",
-          body: "Isolated booths, dedicated fiber, A/V control.",
-        },
-        {
-          num: "05",
           label: "Private events",
           body: "Dinners, presentations, intimate gatherings up to 60 guests.",
-        },
-        {
-          num: "06",
-          label: "Workshop",
-          body: "Talks, masterclasses, creative residencies.",
         },
       ],
     },
