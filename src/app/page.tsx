@@ -1,7 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { Manifesto } from "@/components/Manifesto";
-import { Marquee } from "@/components/Marquee";
 import { Gallery } from "@/components/Gallery";
 import { UseCases } from "@/components/UseCases";
 import { Specs } from "@/components/Specs";
@@ -14,7 +13,6 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Manifesto />
-      <Marquee />
       <Gallery />
       <UseCases />
       <Specs />
