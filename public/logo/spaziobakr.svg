@@ -1,36 +1,8 @@
-"use client";
-
-import clsx from "clsx";
-
-/**
- * Spazio BAKR official wordmark — vectorized 1:1 from brand identity PDF
- * (page 5, bottom stripe) via potrace.
- *
- * Uses `fill="currentColor"`: inherits color from parent text — guarantees
- * zero color mismatch with surrounding text on any branch / palette.
- */
-export function Logo({
-  className,
-  height = 28,
-  ariaLabel = "Spazio BAKR",
-}: {
-  className?: string;
-  height?: number | string;
-  ariaLabel?: string;
-}) {
-  return (
-    <svg
-      viewBox="0 0 5927 1510"
-      role="img"
-      aria-label={ariaLabel}
-      preserveAspectRatio="xMidYMid meet"
-      className={clsx("inline-block select-none align-middle", className)}
-      style={{
-        height,
-        width: "auto",
-      }}
-    >
-      <g transform="translate(0.000000,1510.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="5927.000000pt" height="1510.000000pt" viewBox="0 0 5927.000000 1510.000000"
+ preserveAspectRatio="xMidYMid meet">
+<g transform="translate(0.000000,1510.000000) scale(0.100000,-0.100000)"
+fill="currentColor" stroke="none">
 <path d="M33156 11243 c-4 -1297 -11 -3411 -16 -4698 -4 -1287 -7 -2341 -5
 -2343 1 -1 322 -5 714 -9 l711 -6 0 344 c0 369 8 599 21 599 4 0 25 -30 45
 -67 63 -114 169 -264 244 -345 256 -277 671 -508 1103 -613 483 -118 1174
@@ -157,7 +129,5 @@ c-12 418 -57 764 -147 1109 l-28 107 679 0 c679 0 679 0 683 23 3 12 10 54 16
 88 613 116 22 2 144 3 270 1 173 -3 260 -9 350 -24z"/>
 <path d="M24740 7315 l0 -3355 410 0 410 0 0 3355 0 3355 -410 0 -410 0 0
 -3355z"/>
-      </g>
-    </svg>
-  );
-}
+</g>
+</svg>

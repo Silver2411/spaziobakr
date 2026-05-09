@@ -55,8 +55,8 @@ export function Navigation({ variant = "home" }: { variant?: "home" | "page" }) 
         )}
       >
         <nav className="container-wide flex h-[var(--header-h)] items-center justify-between gap-6">
-          <Link href="/" data-cursor="Home" aria-label="Spazio BAKR — Home">
-            <Logo variant="red" height={26} priority />
+          <Link href="/" data-cursor="Home" aria-label="Spazio BAKR — Home" className="text-ink">
+            <Logo height={26} />
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
