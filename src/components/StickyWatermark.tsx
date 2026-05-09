@@ -27,18 +27,25 @@ export function StickyWatermark() {
     const compute = () => {
       const y = window.scrollY;
       const vh = window.innerHeight;
-      const heroEnd = vh * 0.85;
-      const fadeEnd = vh * 1.6;
+      // Section boundaries (rough viewport-multiples)
+      const heroEnd = vh * 0.9;        // hero ≈ 100vh
+      const manifestoEnd = vh * 2.05;  // manifesto + marquee ≈ ~120vh after hero
+      const exitEnd = vh * 2.2;        // short fade-out before gallery
 
       if (y < heroEnd) {
-        // Phase 1 — over hero (dark photo)
+        // Phase 1 — solid white over dark hero
         setColor("#ffffff");
         setOpacity(1);
-      } else if (y < fadeEnd) {
-        // Phase 2 — over manifesto/marquee (light bg)
+      } else if (y < manifestoEnd) {
+        // Phase 2 — faint dark watermark, CONSTANT opacity throughout
+        // the manifesto + marquee section
         setColor("#0a0a0a");
-        const t = (y - heroEnd) / (fadeEnd - heroEnd); // 0 → 1
-        setOpacity(0.18 * (1 - t));
+        setOpacity(0.12);
+      } else if (y < exitEnd) {
+        // Quick fade-out before gallery
+        setColor("#0a0a0a");
+        const t = (y - manifestoEnd) / (exitEnd - manifestoEnd);
+        setOpacity(0.12 * (1 - t));
       } else {
         setOpacity(0);
       }
