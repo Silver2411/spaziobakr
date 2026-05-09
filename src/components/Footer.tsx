@@ -13,7 +13,7 @@ export function Footer() {
       <div className="container-wide py-[clamp(3rem,8vw,6rem)]">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="relative md:col-span-6">
-            <Logo variant="light" height={120} className="!h-[clamp(48px,12vw,120px)]" />
+            <Logo height={120} className="!h-[clamp(48px,12vw,120px)] text-bone" />
             <div className="mt-8 hidden text-bone/55 md:block">
               <CircularStamp size={108} />
             </div>
